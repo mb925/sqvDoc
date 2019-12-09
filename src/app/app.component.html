@@ -1,11 +1,56 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-<div>
 
-  <lib-sqv  [op]="options"></lib-sqv>
+  <div class="jumbotron text-center">
+    <h1>Sequence Viewer</h1>
+    <h5>SequenceViewer is a package to use in order to highlight specific region of a protein or of aligned sequences</h5>
+  </div>
+  <h5 style="color: midnightblue; text-align: center">SequenceViewer: "viewSequence" mode</h5>
+  <div class="center" id="sqv">
+    <lib-sqv  [op]="options"></lib-sqv>
+  </div>
 
+  <table class="center">
+    <tr>
+      <th>
+        <h4 class="text-center"> Usage </h4>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <ul class="list">
+          <li>
+           <b>mode:</b>
+          viewSequence mode is used to display information about a sequence.
+          In this mode, the input must be a single sequence.
+          </li>
+          <li>
+            <b>view:</b>
+          Display characters or images on top of the sequence.
+          In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. In this way, also secondary structure or post-transcriptional modification can be indicated.
+          </li>
+          <li>
+            <b>parameters:</b>
+          Show a space between chunks of sequence:
+          You can set the length of chunks (number of residues per chunk) using the parameter chunkSize. If you want a fixed layout set the desired chunkSize and set the width of the parent div.
 
-</div>
+          Choose the desired fontSize. (pixel or vw for fixed layouts).
+          If not set, default value will be 14px.
 
+          SkipIndex sets the number of alternating indexes to show.
+          Particular cases:
+          If skipIndex is not set, no index will be showed. Set skipIndex to the sequence length to display all indexes instead.
 
-
+          It is possible to set the colorChoice in 3 different modes.
+          adjacent: color regions with adjacent colors of the color spectrum,
+          opposite: color regions with opposite colors of the color spectrum,
+          custom: allows the user to choose his own colors for regions. In this case, besides setting the colorChoice to customizable, colors has to be set with the specific colors option. It is necessary to insert a color for each region.
+        </li>
+          <li>
+            <b>colors:</b>
+          Specify type, bounds (start, end) and colors. For type “insertion” a color must always be set. For regions instead, you may choose a color through the custom color option or not, setting one of the default modes (adjacent or opposite).
+        </li>
+        </ul>
+      </th>
+    </tr>
+  </table>
 

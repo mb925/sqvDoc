@@ -1,5 +1,38 @@
 #opt {
   background-color: #4CAF50;
 }
+.center{
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+}
 
+.jumbotron{
+  margin-left: 20px;
+  margin-right: 20px;
+}
 
+#sqv{
+  margin-bottom: 20px;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+ul.list {
+  list-style-type: circle;
+  font-weight: normal;
+}
