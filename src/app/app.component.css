@@ -1,10 +1,14 @@
 #opt {
   background-color: #4CAF50;
 }
-.center{
+.center {
   width: 60%;
   margin: auto;
   padding: 10px;
+}
+
+.usage {
+  margin-left: 40px;
 }
 
 .jumbotron{
@@ -16,10 +20,14 @@
   margin-bottom: 20px;
 }
 
-table, td, th {
-  border: 1px solid #ddd;
-  text-align: left;
+.miniTitle {
+  color: midnightblue;
 }
+
+#useSqv{
+  margin-bottom: 20px;
+}
+
 
 table {
   margin-left: 20px;
@@ -35,4 +43,21 @@ th, td {
 ul.list {
   list-style-type: circle;
   font-weight: normal;
+}
+
+.code{
+  background-color: rgba(57,62,65,0.9);
+  color:white;
+  padding: 10px;
+  font-size:13px;
+}
+
+
+.flex-container {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.flex-container > div {
+  padding: 20px;
 }

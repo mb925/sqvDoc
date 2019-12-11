@@ -6,6 +6,8 @@ import { SqvLibModule } from 'sqv-lib';
 import {InterfaceComponent} from '../interface/interface.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MyLibModule} from 'liibb';
+import {FormsModule} from '@angular/forms';
+import {CodemirrorModule} from 'ng2-codemirror';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {MyLibModule} from 'liibb';
     BrowserModule,
     SqvLibModule,
     HttpClientModule,
-    MyLibModule
+    MyLibModule,
+    CodemirrorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

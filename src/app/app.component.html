@@ -4,53 +4,221 @@
     <h1>Sequence Viewer</h1>
     <h5>SequenceViewer is a package to use in order to highlight specific region of a protein or of aligned sequences</h5>
   </div>
-  <h5 style="color: midnightblue; text-align: center">SequenceViewer: "viewSequence" mode</h5>
+  <h4 style="color: midnightblue; text-align: center">SequenceViewer: "viewSequence" mode</h4>
   <div class="center" id="sqv">
     <lib-sqv  [op]="options"></lib-sqv>
   </div>
+<h4 style="color: midnightblue; text-align: center">TODO: index</h4>
+<div class="jumbotron">
+  <h4> <b>1. Installation</b> </h4>
+  <div class="flex-container">
+    <div style="margin-right: 5px">
+      1. Include the library into the project: <b>nmp i sqv-lib</b><br>
+      2. Update <i>app.module.ts</i><br><br>
+      <p class="code">
+        import &#123; SqvLibModule } from 'sqv-lib';<br>
+
+        @NgModule(&#123;<br>
+        imports: [<br>
+        ...<br>
+        SqvLibModule<br>
+        ...<br>
+        ]<br>
+        })<br>
+
+        export class AppModule &#123; }<br>
+      </p>
+      3. It is now possible to set the options in <i>app.component.ts</i> (see Input section as example).<br>
+    </div>
+    <div>
+      4. Then, in the template file <i>app.component.html</i> add the following:<br><br><br>
+      <p  class="code">
+        &lt;lib-sqv [op]="this.options">&lt;/lib-sqv>
+      </p>
+    </div>
+    <div style="margin-left: 5px">
+      <b>(Optional)</b>  5. If needed, one can change the options input and changes will be displayed.<br>
+      In your component.ts :<br><br>
+      <p  class="code">
+        import &#123;SqvLibComponent} from ‘sqv-lib’<br>
+        sqv: SqvLibComponent<br>
+        this.options = 'your new options here'<br>
+        this.sqv = new SqvLibComponent()<br>
+        this.sqv.draw(this.options)<br>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="usage">
+    <div id="usage">
+            <h4> <b>2. Usage</b> </h4>
+        <div class="content">
+            <ul class="list">
+              <li>
+                <b class ="miniTitle">mode</b> (string):<br>
+                <b>viewSequence</b> mode is used to display information about a sequence. <br>
+                In this mode, the input has to be a single sequence. In case more sequences are submitted, the first one will be choosen.
+              </li>
+              <li>
+                <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+                <p>Display characters or images on top of the sequence.<br>
+                  In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+                  In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
+              </li>
+              <li>
+                <b class ="miniTitle">parameters:</b> (object)<br>
+                <p>Show a space between chunks of a sequence: <br>
+                  You can set the length of chunks (number of residues per chunk) using the parameter <b>chunkSize</b>. <br>
+                  If you want a fixed layout set the desired chunkSize and set the width of the parent div.<br>
+
+                  Choose the desired <b>fontSize</b>. (pixel or vw for fixed layouts). <br>
+                  If not set, default value will be 14px. <br>
+
+                  <b>SkipIndex</b> sets the number of alternating indexes to show.  <br>
+                  Particular cases:
+                  If skipIndex is not set, no index will be showed. Set skipIndex to the sequence length to display all indexes instead.  <br>
+
+                  It is possible to set the colorChoice in 3 different modes. <br>
+                  <b>adjacent</b>: color regions with adjacent colors of the color spectrum, <br>
+                  <b>opposite</b>: color regions with opposite colors of the color spectrum, <br>
+                  <b>custom</b>: allows the user to choose his own colors for regions. In this case, besides setting the colorChoice to customizable, colors has to be set with the specific colors option. It is necessary to insert a color for each region.</p>
+              </li>
+              <li>
+                <b class ="miniTitle">colors:</b> (array)
+                Specify <b>type</b>, bounds (<b>start</b>, <b>end</b>) and <b>colors</b>. For type “insertion” a color has to be set. <br>
+                For regions instead, you may choose a color through the custom color option or instead you can simply set one of the default modes (adjacent or opposite).
+              </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
   <table class="center">
-    <tr>
-      <th>
-        <h4 class="text-center"> Usage </h4>
-      </th>
-    </tr>
-    <tr>
-      <th>
-        <ul class="list">
-          <li>
-           <b>mode:</b>
-          viewSequence mode is used to display information about a sequence.
-          In this mode, the input must be a single sequence.
-          </li>
-          <li>
-            <b>view:</b>
-          Display characters or images on top of the sequence.
-          In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. In this way, also secondary structure or post-transcriptional modification can be indicated.
-          </li>
-          <li>
-            <b>parameters:</b>
-          Show a space between chunks of sequence:
-          You can set the length of chunks (number of residues per chunk) using the parameter chunkSize. If you want a fixed layout set the desired chunkSize and set the width of the parent div.
+  <tr>
+    <th colspan="2">
+      <h4 class="text-center"> <b>Examples</b> </h4>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      option example: <br>
+      <p class="code">
+        options = <br>&#123;<br>
+        mode: 'viewSequence',<br>
+        parameters: &#123;<br>
+        fontSize: '14px',<br>
+        chunkSize: 5,<br>
+        skipIndex: 5,<br>
+        colorChoice: 'opposite'<br>
+        },<br>
+        view: <br>[
+          'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQMQPQQPNHAHQESSPRAAPTFASWKKQMLPRVNFSPILATELGPRTMFVPETEDMLPRLAPRPS',<br>
+        &#123;2: 'a', 3: 'a', 4: 'a', 5 : 'a', 6: 'a', 7: 'a', 8 : 'a',  40: 'b', 41: 'b',
+        42: 'b', 43: 'b', 44: 'b', 93: 'a', 94: 'a'},<br>
+        &#123;0: '&#x2605;', 1 : '&#x2605;', 31: '&#x2605;', 32 : '&#x2605;', 60: '&#x2605;', 61: '&#x2605;'},<br>
+        &#123;0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 92: 93, 93: 94}<br>
+        ],<br>
 
-          Choose the desired fontSize. (pixel or vw for fixed layouts).
-          If not set, default value will be 14px.
+        colors: <br>[
+        &#123;
+        type: 'region',
+        start: 1,
+        end: 20,
+        color: &#123;r: 204, g: 255, b: 0}
+        },<br>
+        &#123;
+        type: 'region',
+        start: 25,
+        end: 45,
+        color: &#123;r: 0, g: 102, b: 255, a: 0.4}
+        },<br>
+        &#123;
+        type: 'region',
+        start: 53,
+        end: 59,
+        color: &#123;r: 0, g: 102, b: 255, a: 0.4}
+        },<br>
+        &#123;
+        type: 'region',
+        start: 23,
+        end: 25,
+        color: &#123;r: 0, g: 102, b: 25, a: 0.4}
+        }
+        ]<br>
+        };
+      </p>
+       <br>
+      <button>Run</button>
+    </th>
+    <th>Display Sequence viewer example here</th>
+  </tr>
+</table>
 
-          SkipIndex sets the number of alternating indexes to show.
-          Particular cases:
-          If skipIndex is not set, no index will be showed. Set skipIndex to the sequence length to display all indexes instead.
 
-          It is possible to set the colorChoice in 3 different modes.
-          adjacent: color regions with adjacent colors of the color spectrum,
-          opposite: color regions with opposite colors of the color spectrum,
-          custom: allows the user to choose his own colors for regions. In this case, besides setting the colorChoice to customizable, colors has to be set with the specific colors option. It is necessary to insert a color for each region.
+<h4 style="color: midnightblue; text-align: center">SequenceViewer: "alignSequences" mode</h4>
+<div class="center">
+  <lib-sqv  [op]="optionsAlign"></lib-sqv>
+</div>
+
+<table class="center">
+  <tr>
+    <th>
+      <h4 class="text-center"> <b>Usage</b> </h4>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <ul class="list">
+        <li>
+          <b class ="miniTitle">mode</b> (string):<br>
+          <i>alignSequences</i> mode is used to display information about aligned sequences. <br>
+          In this mode, the input is intended to be multiple sequences.
         </li>
-          <li>
-            <b>colors:</b>
-          Specify type, bounds (start, end) and colors. For type “insertion” a color must always be set. For regions instead, you may choose a color through the custom color option or not, setting one of the default modes (adjacent or opposite).
+        <li>
+          <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+          <p>Display characters or images on top of the sequence.<br>
+            In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+            In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
         </li>
-        </ul>
-      </th>
-    </tr>
-  </table>
+        <li>
+          <b class ="miniTitle">parameters:</b> (object)
+             Possible parameters are <i>chunkSize</i>, <i>fontSize</i>, <i>SkipIndex</i> (See previous explanation on viewSequence mode)
+            <i>Color choice</i> doesn't need to be set.  <br>
+        </li>
+        <li>
+          <b class ="miniTitle">colors:</b> (array)
+          Specify <i>type</i>, <i>letter</i> and <i>colors</i>.<br>
+        </li>
+      </ul>
+    </th>
+  </tr>
+</table>
 
+<table class="center">
+  <tr>
+    <th colspan="2">
+      <h4 class="text-center"> <b>Try yourself</b> </h4>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Try to change something modifying the form below: <br>
+      <br>
+      <textarea rows="4" cols="50">
+     TODO: insert code simulation here ...
+
+      view: [
+
+        // sequence
+        ’MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQMQPQQPNHAHQESSPRAAPTFASWKKQMLPRVNFSPILATELGPRTAPSSN',
+        ]
+      </textarea> <br>
+      <button>Run</button>
+    </th>
+    <th>Display Sequence viewer example here</th>
+  </tr>
+</table>
+
+
+<button (click)="refresh()">Refresh SQV</button>
