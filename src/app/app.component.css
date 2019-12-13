@@ -7,17 +7,14 @@
   padding: 10px;
 }
 
-.usage {
+.white {
   margin-left: 40px;
+  margin-bottom: 40px;
 }
 
 .jumbotron{
   margin-left: 20px;
   margin-right: 20px;
-}
-
-#sqv{
-  margin-bottom: 20px;
 }
 
 .miniTitle {
@@ -28,7 +25,14 @@
   margin-bottom: 20px;
 }
 
+.index{
+  margin-right: 100px;
+}
 
+.item{
+  margin: 30px;
+  width: 600px;
+}
 table {
   margin-left: 20px;
   margin-right: 20px;
@@ -52,12 +56,53 @@ ul.list {
   font-size:13px;
 }
 
-
 .flex-container {
   display: flex;
   margin-bottom: 40px;
 }
 
+.column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  float: left;
+  width: 100%;
+
+}
+
 .flex-container > div {
   padding: 20px;
+}
+
+.wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.example{
+  display: inline-block;
+}
+
+.sqv{
+  margin-top: 50px;
+}
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: black;
+}
+.hljs-keyword {
+  color: #00f;
+}
+.hljs-attr {
+  color: #f00;
+}
+.hljs-string {
+  color: #a31515;
 }

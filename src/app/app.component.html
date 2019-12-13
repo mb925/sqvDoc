@@ -1,16 +1,235 @@
+<!--<lib-sqv  [op]="exampleTwo"></lib-sqv>-->
+<!--<lib-sqv  [op]="options"></lib-sqv>-->
+<!--<button (click)="run()">Run</button>-->
+<!--<lib-sqv  [op]="optionsAlign"></lib-sqv>-->
+
+
+
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
   <div class="jumbotron text-center">
     <h1>Sequence Viewer</h1>
     <h5>SequenceViewer is a package to use in order to highlight specific region of a protein or of aligned sequences</h5>
   </div>
-  <h4 style="color: midnightblue; text-align: center">SequenceViewer: "viewSequence" mode</h4>
-  <div class="center" id="sqv">
-    <lib-sqv  [op]="options"></lib-sqv>
+
+
+
+
+
+  <div class="white index">
+    <div class="flex-container">
+
+        <div id="toc_container">
+          <h4 class="toc_title"> <b>Contents</b> </h4>
+          <ul class="toc_list">
+            <li><a href="#First_Point_Header">1. VIEWSEQUENCE MODE</a>
+              <ul>
+                <li><a href="#First_Sub_Point_1">1.1 Usage</a></li>
+                <li><a href="#First_Sub_Point_2">1.2 Examples</a></li>
+              </ul>
+            </li>
+            <li><a href="#Second_Point_Header">2. ALIGNSEQUENCES MODE</a></li>
+            <ul>
+              <li><a href="#Second_Sub_Point_1">1.1 Usage</a></li>
+              <li><a href="#Second_Sub_Point_2">1.2 Examples</a></li>
+            </ul>
+            <li><a href="#Third_Point_Header">3. INSTALLATION</a></li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h4 style="color: midnightblue;">SequenceViewer: "viewSequence" mode</h4>
+          <lib-sqv *ngIf="options" [op]="options"></lib-sqv>
+        </div>
+
+        <div class="item">
+          <h4 style="color: midnightblue;">SequenceViewer: "alignSequences" mode</h4>
+          <lib-sqv *ngIf="optionsAlign" [op]="optionsAlign"></lib-sqv>
+        </div>
+
+    </div>
   </div>
-<h4 style="color: midnightblue; text-align: center">TODO: index</h4>
+
+
+
+
+<div class="white">
+    <div>
+      <h4 style="color: midnightblue;" id="First_Point_Header">SequenceViewer: "viewSequence" mode</h4>
+            <h4 id="First_Sub_Point_1"> <b>1. Usage</b> </h4>
+            <ul class="list">
+              <li>
+                <b class ="miniTitle">mode</b> (string):<br>
+                <b>viewSequence</b> mode is used to display information about a sequence. <br>
+                In this mode, the input has to be a single sequence. In case more sequences are submitted, the first one will be choosen.
+              </li>
+              <li>
+                <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+                <p>Display characters or images on top of the sequence.<br>
+                  In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+                  In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
+              </li>
+              <li>
+                <b class ="miniTitle">parameters:</b> (object)<br>
+                <p>Show a space between chunks of a sequence: <br>
+                  You can set the length of chunks (number of residues per chunk) using the parameter <b>chunkSize</b>. <br>
+                  If you want a fixed layout set the desired chunkSize and set the width of the parent div.<br>
+
+                  Choose the desired <b>fontSize</b>. (pixel or vw for fixed layouts). <br>
+                  If not set, default value will be 14px. <br>
+
+                  <b>SkipIndex</b> sets the number of alternating indexes to show.  <br>
+                  Particular cases:
+                  If skipIndex is not set, no index will be showed. Set skipIndex to the sequence length to display all indexes instead.  <br>
+
+                  It is possible to set the colorChoice in 3 different modes. <br>
+                  <b>adjacent</b>: color regions with adjacent colors of the color spectrum, <br>
+                  <b>opposite</b>: color regions with opposite colors of the color spectrum, <br>
+                  <b>custom</b>: allows the user to choose his own colors for regions. In this case, besides setting the colorChoice to customizable, colors has to be set with the specific colors option. It is necessary to insert a color for each region.</p>
+              </li>
+              <li>
+                <b class ="miniTitle">colors:</b> (array)
+                Specify <b>type</b>, bounds (<b>start</b>, <b>end</b>) and <b>colors</b>. For type “insertion” a color has to be set. <br>
+                For regions instead, you may choose a color through the custom color option or instead you can simply set one of the default modes (adjacent or opposite).
+              </li>
+            </ul>
+    </div>
+</div>
+
+
+
+
+<div class="white">
+
+  <h4 id="First_Sub_Point_2"> <b>2. Examples</b> </h4>
+  <div class="flex-container jumbotron">
+
+    <div>
+      <h6> <b>Simple case</b> </h6>
+      <code class="hljs code example"><span class="hljs-keyword">this</span>.exOne = &#123;      <br>
+
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,      <br>
+
+        <span class="hljs-attr">parameters</span>: &#123;
+        <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
+        },      <br>
+
+        <span class="hljs-attr">view</span>: [
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>,
+        ],      <br>
+
+        <span class="hljs-attr">colors</span>: [&#123;
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,
+        <span class="hljs-attr">start</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">end</span>: <span class="hljs-number">18</span>
+        },      <br>
+        &#123;
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,
+        <span class="hljs-attr">start</span>: <span class="hljs-number">19</span>,
+        <span class="hljs-attr">end</span>: <span class="hljs-number">27</span>
+        }      <br>
+        ]};</code>
+      <br>
+      <button (click)="runExOne()">Run</button>
+    </div>
+    <div>
+    </div>
+    <lib-sqv *ngIf="exOne" [op]="exOne"></lib-sqv>
+  </div>
+  <div class="flex-container jumbotron">
+
+    <div>
+      <h6> <b>Simple case</b> </h6>
+
+
+
+      <button (click)="runExTwo()">Run</button>
+    </div>
+    <div class="sqv">
+      <lib-sqv  *ngIf="exTwo" [op]="exTwo"></lib-sqv>
+    </div>
+
+  </div>
+</div>
+
+<div class="white">
+  <div>
+    <h4 id="Second_Point_Header" style="color: midnightblue;">SequenceViewer: "alignSequences" mode</h4>
+    <h4 id="Second_Sub_Point_1"> <b>1. Usage</b> </h4>
+
+      <ul class="list">
+        <li>
+          <b class ="miniTitle">mode</b> (string):<br>
+          <i>alignSequences</i> mode is used to display information about aligned sequences. <br>
+          In this mode, the input is intended to be multiple sequences.
+        </li>
+        <li>
+          <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+          <p>Display characters or images on top of the sequence.<br>
+            In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+            In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
+        </li>
+        <li>
+          <b class ="miniTitle">parameters:</b> (object)
+          Possible parameters are <i>chunkSize</i>, <i>fontSize</i>, <i>SkipIndex</i> (See previous explanation on viewSequence mode)
+          <i>Color choice</i> doesn't need to be set.  <br>
+        </li>
+        <li>
+          <b class ="miniTitle">colors:</b> (array)
+          Specify <i>type</i>, <i>letter</i> and <i>colors</i>.<br>
+        </li>
+      </ul>
+  </div>
+</div>
+
+
+<div class="white">
+
+  <h4 id="Second_Sub_Point_2"> <b>2. Examples</b> </h4>
+  <div class="flex-container jumbotron column">
+    <h6> <b>Simple case</b> </h6>
+
+<!--    <lib-sqv  [op]="exampleOne"></lib-sqv>-->
+    <div>
+
+
+      <p class="code example">
+        options = <br>&#123;<br>
+        mode: 'viewSequence',<br>
+        parameters: &#123;<br>
+        colorChoice: 'adjacent'<br>
+        },<br>
+
+        view: [<br>
+        'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM',<br>
+        ],<br>
+
+        colors: [<br>
+        &#123;
+        type: 'region',<br>
+        start: 1,<br>
+        end: 20,<br>
+        color: &#123;r: 204, g: 255, b: 0}<br>
+        },
+        &#123;
+        type: 'region',<br>
+        start: 25,<br>
+        end: 45,<br>
+        color: &#123;r: 0, g: 102, b: 255, a: 0.4}<br>
+        }
+        ]<br>
+        };
+      </p>
+      <br>
+    </div>
+
+
+
+  </div>
+</div>
+
 <div class="jumbotron">
-  <h4> <b>1. Installation</b> </h4>
+  <h4 id = "Third_Point_Header"> <b>1. Installation</b> </h4>
   <div class="flex-container">
     <div style="margin-right: 5px">
       1. Include the library into the project: <b>nmp i sqv-lib</b><br>
@@ -50,175 +269,3 @@
   </div>
 </div>
 
-<div class="usage">
-    <div id="usage">
-            <h4> <b>2. Usage</b> </h4>
-        <div class="content">
-            <ul class="list">
-              <li>
-                <b class ="miniTitle">mode</b> (string):<br>
-                <b>viewSequence</b> mode is used to display information about a sequence. <br>
-                In this mode, the input has to be a single sequence. In case more sequences are submitted, the first one will be choosen.
-              </li>
-              <li>
-                <b class ="miniTitle">view:</b> (array of string, array or object)<br>
-                <p>Display characters or images on top of the sequence.<br>
-                  In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
-                  In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
-              </li>
-              <li>
-                <b class ="miniTitle">parameters:</b> (object)<br>
-                <p>Show a space between chunks of a sequence: <br>
-                  You can set the length of chunks (number of residues per chunk) using the parameter <b>chunkSize</b>. <br>
-                  If you want a fixed layout set the desired chunkSize and set the width of the parent div.<br>
-
-                  Choose the desired <b>fontSize</b>. (pixel or vw for fixed layouts). <br>
-                  If not set, default value will be 14px. <br>
-
-                  <b>SkipIndex</b> sets the number of alternating indexes to show.  <br>
-                  Particular cases:
-                  If skipIndex is not set, no index will be showed. Set skipIndex to the sequence length to display all indexes instead.  <br>
-
-                  It is possible to set the colorChoice in 3 different modes. <br>
-                  <b>adjacent</b>: color regions with adjacent colors of the color spectrum, <br>
-                  <b>opposite</b>: color regions with opposite colors of the color spectrum, <br>
-                  <b>custom</b>: allows the user to choose his own colors for regions. In this case, besides setting the colorChoice to customizable, colors has to be set with the specific colors option. It is necessary to insert a color for each region.</p>
-              </li>
-              <li>
-                <b class ="miniTitle">colors:</b> (array)
-                Specify <b>type</b>, bounds (<b>start</b>, <b>end</b>) and <b>colors</b>. For type “insertion” a color has to be set. <br>
-                For regions instead, you may choose a color through the custom color option or instead you can simply set one of the default modes (adjacent or opposite).
-              </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-  <table class="center">
-  <tr>
-    <th colspan="2">
-      <h4 class="text-center"> <b>Examples</b> </h4>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      option example: <br>
-      <p class="code">
-        options = <br>&#123;<br>
-        mode: 'viewSequence',<br>
-        parameters: &#123;<br>
-        fontSize: '14px',<br>
-        chunkSize: 5,<br>
-        skipIndex: 5,<br>
-        colorChoice: 'opposite'<br>
-        },<br>
-        view: <br>[
-          'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQMQPQQPNHAHQESSPRAAPTFASWKKQMLPRVNFSPILATELGPRTMFVPETEDMLPRLAPRPS',<br>
-        &#123;2: 'a', 3: 'a', 4: 'a', 5 : 'a', 6: 'a', 7: 'a', 8 : 'a',  40: 'b', 41: 'b',
-        42: 'b', 43: 'b', 44: 'b', 93: 'a', 94: 'a'},<br>
-        &#123;0: '&#x2605;', 1 : '&#x2605;', 31: '&#x2605;', 32 : '&#x2605;', 60: '&#x2605;', 61: '&#x2605;'},<br>
-        &#123;0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 10: 11, 11: 12, 12: 13, 13: 14, 14: 15, 15: 16, 92: 93, 93: 94}<br>
-        ],<br>
-
-        colors: <br>[
-        &#123;
-        type: 'region',
-        start: 1,
-        end: 20,
-        color: &#123;r: 204, g: 255, b: 0}
-        },<br>
-        &#123;
-        type: 'region',
-        start: 25,
-        end: 45,
-        color: &#123;r: 0, g: 102, b: 255, a: 0.4}
-        },<br>
-        &#123;
-        type: 'region',
-        start: 53,
-        end: 59,
-        color: &#123;r: 0, g: 102, b: 255, a: 0.4}
-        },<br>
-        &#123;
-        type: 'region',
-        start: 23,
-        end: 25,
-        color: &#123;r: 0, g: 102, b: 25, a: 0.4}
-        }
-        ]<br>
-        };
-      </p>
-       <br>
-      <button>Run</button>
-    </th>
-    <th>Display Sequence viewer example here</th>
-  </tr>
-</table>
-
-
-<h4 style="color: midnightblue; text-align: center">SequenceViewer: "alignSequences" mode</h4>
-<div class="center">
-  <lib-sqv  [op]="optionsAlign"></lib-sqv>
-</div>
-
-<table class="center">
-  <tr>
-    <th>
-      <h4 class="text-center"> <b>Usage</b> </h4>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      <ul class="list">
-        <li>
-          <b class ="miniTitle">mode</b> (string):<br>
-          <i>alignSequences</i> mode is used to display information about aligned sequences. <br>
-          In this mode, the input is intended to be multiple sequences.
-        </li>
-        <li>
-          <b class ="miniTitle">view:</b> (array of string, array or object)<br>
-          <p>Display characters or images on top of the sequence.<br>
-            In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
-            In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
-        </li>
-        <li>
-          <b class ="miniTitle">parameters:</b> (object)
-             Possible parameters are <i>chunkSize</i>, <i>fontSize</i>, <i>SkipIndex</i> (See previous explanation on viewSequence mode)
-            <i>Color choice</i> doesn't need to be set.  <br>
-        </li>
-        <li>
-          <b class ="miniTitle">colors:</b> (array)
-          Specify <i>type</i>, <i>letter</i> and <i>colors</i>.<br>
-        </li>
-      </ul>
-    </th>
-  </tr>
-</table>
-
-<table class="center">
-  <tr>
-    <th colspan="2">
-      <h4 class="text-center"> <b>Try yourself</b> </h4>
-    </th>
-  </tr>
-  <tr>
-    <th>
-      Try to change something modifying the form below: <br>
-      <br>
-      <textarea rows="4" cols="50">
-     TODO: insert code simulation here ...
-
-      view: [
-
-        // sequence
-        ’MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQMQPQQPNHAHQESSPRAAPTFASWKKQMLPRVNFSPILATELGPRTAPSSN',
-        ]
-      </textarea> <br>
-      <button>Run</button>
-    </th>
-    <th>Display Sequence viewer example here</th>
-  </tr>
-</table>
-
-
-<button (click)="refresh()">Refresh SQV</button>
