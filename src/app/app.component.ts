@@ -57,7 +57,8 @@ export class AppComponent {
         end: 25,
         color: {r: 0, g: 102, b: 25, a: 0.4}
       }
-    ]
+    ],
+    id: 'sqv-op'
   };
   optionsAlign = {
 
@@ -99,7 +100,8 @@ export class AppComponent {
         letter: 'M',
         color: {r: 0, g: 0, b: 255, a: 0.4}
       }
-    ]
+    ],
+    id: 'sqv-al'
   };
 
   exTwo;
@@ -130,7 +132,8 @@ export class AppComponent {
           start: 19,
           end: 27
         }
-      ]
+      ],
+      id: 'sqv-1'
     };
     this.sqv = new SqvLibComponent();
     this.sqv.draw(this.exOne);
@@ -170,9 +173,10 @@ export class AppComponent {
           end: 12,
           color: {r: 204, g: 255, b: 0}
         }
-      ]
+      ],
+      id: 'sqv-two'
     };
     this.sqv = new SqvLibComponent();
-    this.sqv.draw(this.exOne);
+    this.sqv.draw(this.exTwo);
   }
 }
