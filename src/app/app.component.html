@@ -27,6 +27,7 @@
               <li><a href="#Second_Sub_Point_2">1.2 Examples</a></li>
             </ul>
             <li><a href="#Third_Point_Header">3. INSTALLATION</a></li>
+            <li><a href="#Fourth_Point_Header">4. SUMMARY</a></li>
           </ul>
         </div>
 
@@ -160,7 +161,44 @@
         <br> },<br>
 
         <span class="hljs-attr">view</span>: [
-        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM',</span><br>
+
+          &#123;
+          <span class="hljs-number">2</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">3</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">4</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">5</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">6</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">7</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">8</span>: <span class="hljs-string">'a'</span>,
+          <span class="hljs-number">20</span>: <span class="hljs-string">'b'</span>,
+          <span class="hljs-number">21</span>: <span class="hljs-string">'b'</span>,
+          <span class="hljs-number">22</span>: <span class="hljs-string">'b'</span>,
+          <span class="hljs-number">23</span>: <span class="hljs-string">'b'</span>,
+          <span class="hljs-number">24</span>: <span class="hljs-string">'b'</span>
+          },<br>
+          &#123;
+          <span class="hljs-number">0</span>: '&amp;#x2605;'
+        <span class="hljs-number">1</span>: <span class="hljs-string">'&amp;#x2605;'</span>,
+          <span class="hljs-number">31</span>: <span class="hljs-string">'&amp;#x2605;'</span>,
+          <span class="hljs-number">32</span>: <span class="hljs-string">'&amp;#x2605;'</span>
+          },<br>
+          &#123;
+          <span class="hljs-number">0</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-number">1</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-number">2</span>: <span class="hljs-number">3</span>,
+          <span class="hljs-number">3</span>: <span class="hljs-number">4</span>,
+          <span class="hljs-number">4</span>: <span class="hljs-number">5</span>,
+          <span class="hljs-number">5</span>: <span class="hljs-number">6</span>,
+          <span class="hljs-number">6</span>: <span class="hljs-number">7</span>,
+          <span class="hljs-number">7</span>: <span class="hljs-number">8</span>,
+          <span class="hljs-number">10</span>: <span class="hljs-number">11</span>,
+          <span class="hljs-number">11</span>: <span class="hljs-number">12</span>,
+          <span class="hljs-number">12</span>: <span class="hljs-number">13</span>,
+          <span class="hljs-number">13</span>: <span class="hljs-number">14</span>,
+          <span class="hljs-number">14</span>: <span class="hljs-number">15</span>,
+          <span class="hljs-number">15</span>: <span class="hljs-number">16</span>
+          }<br>
         ],<br>
 
         &nbsp;<span class="hljs-attr">colors</span>: [ <br>&#123;<br>
@@ -270,50 +308,149 @@
 <div class="white">
 
   <h4 id="Second_Sub_Point_2"> <b>2. Examples</b> </h4>
-  <div class="flex-container jumbotron column">
-    <h6> <b>Simple case</b> </h6>
+  <div class="flex-container jumbotron">
     <div>
+      <!--  SIMPLE EXAMPLE-->
+      <h6> <b>Simple case</b> </h6>
+      <code class="hljs">options = &#123; <br>
 
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'alignSequences'</span>,<br>
 
-      <p class="code example">
-        options = <br>&#123;<br>
-        mode: 'viewSequence',<br>
-        parameters: &#123;<br>
-        colorChoice: 'adjacent'<br>
+        <span class="hljs-attr">parameters</span>: &#123;<br>
+        <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span><br>
         },<br>
 
-        view: [<br>
-        'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM',<br>
+        <span class="hljs-attr">view</span>: [<br>
+          <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+          <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+          <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+          <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span><br>
         ],<br>
 
-        colors: [<br>
-        &#123;
-        type: 'region',<br>
-        start: 1,<br>
-        end: 20,<br>
-        color: &#123;r: 204, g: 255, b: 0}<br>
-        },
-        &#123;
-        type: 'region',<br>
-        start: 25,<br>
-        end: 45,<br>
-        color: &#123;r: 0, g: 102, b: 255, a: 0.4}<br>
+        <span class="hljs-attr">colors</span>: [<br>&#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+        &nbsp;<span class="hljs-attr">letter</span>: <span class="hljs-string">'A'</span>,<br>
+        &nbsp;<span class="hljs-attr">color</span>: &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">204</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">255</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
         }
-        ]<br>
-        };
-      </p>
+        },<br>
+        &#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+        &nbsp;<span class="hljs-attr">letter</span>: <span class="hljs-string">'D'</span>,<br>
+        &nbsp;<span class="hljs-attr">color</span>: &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">255</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">102</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
+        }
+        },<br>
+        &#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+        &nbsp;<span class="hljs-attr">letter</span>: <span class="hljs-string">'V'</span>,<br>
+        &nbsp;<span class="hljs-attr">color</span>: &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">239</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">100</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">97</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
+        },<br>
+        &#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+        &nbsp;<span class="hljs-attr">letter</span>: <span class="hljs-string">'P'</span>,<br>
+        &nbsp;<span class="hljs-attr">color</span>: &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">144</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">179</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
+        }
+        }<br>
+        ],<br>
+        <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-1'</span>
+        };</code>
       <br>
     </div>
-
-
-
+    <div>
+      <lib-sqv *ngIf="alignSimple" [op]="alignSimple"></lib-sqv>
+    </div>
   </div>
-  <div class="flex-container jumbotron column">
-ex additional
+  <div class="flex-container jumbotron">
+    <!--  SIMPLE EXAMPLE-->
+    <h6> <b>Adding Indexes</b> </h6>
+    <code class="hljs">options = &#123;<br>
+
+      <span class="hljs-attr">mode</span>: <span class="hljs-string">'alignSequences'</span>,<br>
+
+      <span class="hljs-attr">parameters</span>: &#123;<br>
+      <span class="hljs-attr">chunkSize</span>: <span class="hljs-number">10</span>,<br>
+      <span class="hljs-attr">skipIndex</span>: <span class="hljs-number">5</span>,
+      <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
+      },<br>
+      <span class="hljs-attr">view</span>: [<br>
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
+      &#123;
+      <span class="hljs-number">2</span>: <span class="hljs-string">'a'</span>,
+      <span class="hljs-number">3</span>: <span class="hljs-string">'a'</span>,
+      <span class="hljs-number">4</span>: <span class="hljs-string">'a'</span>,
+      <span class="hljs-number">5</span>: <span class="hljs-string">'a'</span>,
+      <span class="hljs-number">6</span>: <span class="hljs-string">'a'</span>,
+      <span class="hljs-number">7</span>: <span class="hljs-string">'a'</span>
+      },<br>
+      &#123;
+      <span class="hljs-number">0</span>: <span class="hljs-string">'&amp;#x2605;'</span>,
+      <span class="hljs-number">1</span>: <span class="hljs-string">'&amp;#x2605;'</span>
+      },<br>
+      &#123;
+      <span class="hljs-number">0</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-number">1</span>: <span class="hljs-number">2</span>,
+      <span class="hljs-number">2</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-number">3</span>: <span class="hljs-number">4</span>,
+      <span class="hljs-number">4</span>: <span class="hljs-number">5</span>,
+      <span class="hljs-number">5</span>: <span class="hljs-number">6</span>,
+      <span class="hljs-number">6</span>: <span class="hljs-number">7</span>,
+      <span class="hljs-number">7</span>: <span class="hljs-number">8</span>,
+      <span class="hljs-number">10</span>: <span class="hljs-number">11</span>,
+      <span class="hljs-number">11</span>: <span class="hljs-number">12</span>,
+      <span class="hljs-number">12</span>: <span class="hljs-number">13</span>,
+      <span class="hljs-number">13</span>: <span class="hljs-number">14</span>,
+      <span class="hljs-number">14</span>: <span class="hljs-number">15</span>,
+      <span class="hljs-number">15</span>: <span class="hljs-number">16</span>
+      }<br>
+      ],<br>
+
+      <span class="hljs-attr">colors</span>: [&#123;<br>
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+      <span class="hljs-attr">letter</span>: <span class="hljs-string">'A'</span>,<br>
+      <span class="hljs-attr">color</span>: &#123;
+      <span class="hljs-attr">r</span>: <span class="hljs-number">204</span>,
+      <span class="hljs-attr">g</span>: <span class="hljs-number">255</span>,
+      <span class="hljs-attr">b</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
+      }<br>
+      },
+      &#123;
+      <span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
+      <span class="hljs-attr">letter</span>: <span class="hljs-string">'D'</span>,<br>
+      <span class="hljs-attr">color</span>: &#123;
+      <span class="hljs-attr">r</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">g</span>: <span class="hljs-number">255</span>,
+      <span class="hljs-attr">b</span>: <span class="hljs-number">102</span>,
+      <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
+      }
+      }<br>
+      ],<br>
+      <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-alI'</span>
+      };</code>
+    <div>
+      <lib-sqv *ngIf="alignInd" [op]="alignInd"></lib-sqv>
+    </div>
 </div>
 
 <div class="jumbotron">
-  <h4 id = "Third_Point_Header"> <b>1. Installation</b> </h4>
+  <h4 id = "Third_Point_Header"> <b>3. Installation</b> </h4>
   <div class="flex-container">
     <div style="margin-right: 5px">
       1. Include the library into the project: <b>nmp i sqv-lib</b><br>
@@ -353,3 +490,37 @@ ex additional
   </div>
 </div>
 
+  <div class="white">
+    <h4 id = "Fourth_Point_Header"> <b>4. Summary</b> </h4>
+    <div class="flex-container">
+
+      <ul class="list">
+        <li>
+          <b class ="miniTitle">mode</b> (string): <i>'viewSequences'</i>,<i>'alignSequences'</i>.
+        </li>
+        <li>
+          <b class ="miniTitle">view:</b> (array of string, array or object):<br>
+          <p> Example of input string: 'AAAAA' for a sequence or '12345' for indexes</p>
+          <p> Example of input array: ['A', 'A'] or ['1','2']</p>
+          <p> Example of input object: &#123;0: 'A', 1: 'A'} or &#123;0: '1', 1:'2'}</p>
+          <p> Mixed input are allowed as well: 'AAAAA' and &#123;0: '1', 1:'2'}</p>
+        </li>
+        <li>
+          <b class ="miniTitle">parameters:</b> (object):<br>
+          <b>chunkSize </b>(integer): number of residues per line.,<br><br>
+          <b>fontSize </b>(string): e.g. '14px' or '2vw',<br><br>
+          <b>SkipIndex </b>(integer): number of alternating indexes to show,<br><br>
+          <b>Color choice </b>(string): <i>'adjacent'</i>, <i>'opposite'</i>, <i>'custom'</i>  <br><br>
+        </li>
+        <li>
+          <b class ="miniTitle">colors:</b> (array)<br>
+          Specify:<br>
+          <b>type</b>, 'region', 'insertion', 'aminoacid'<br>
+          <b>start </b>(integer)<b>end </b>(integer) for region/insertion or <b>letter</b> (integer) for aminoacid
+          <b>color </b>(object):<br> r g b
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
