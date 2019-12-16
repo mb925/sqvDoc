@@ -1,7 +1,3 @@
-
-
-<lib-sqv  *ngIf="exTwo" [op]="exTwo"></lib-sqv>
-
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
 
   <div class="jumbotron text-center">
@@ -89,6 +85,10 @@
                 Specify <b>type</b>, bounds (<b>start</b>, <b>end</b>) and <b>colors</b>. For type “insertion” a color has to be set. <br>
                 For regions instead, you may choose a color through the custom color option or instead you can simply set one of the default modes (adjacent or opposite).
               </li>
+              <li>
+                <b class ="miniTitle">id:</b> (array)
+                Specify an id for the sequence viewer object. It can be number, letters and symbols.
+              </li>
             </ul>
     </div>
 </div>
@@ -99,51 +99,142 @@
 <div class="white">
 
   <h4 id="First_Sub_Point_2"> <b>2. Examples</b> </h4>
+<!--  SIMPLE EXAMPLE-->
   <div class="flex-container jumbotron">
 
     <div>
       <h6> <b>Simple case</b> </h6>
-      <code class="hljs code example"><span class="hljs-keyword">this</span>.exOne = &#123;      <br>
+      <code class="hljs">options =  &#123;<br>
 
-        <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,      <br>
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,<br>&#123;<br>
 
-        <span class="hljs-attr">parameters</span>: &#123;
-        <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
-        },      <br>
+        <span class="hljs-attr">parameters</span>:  &#123;<br>
+        &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
+        <br> },<br>
 
         <span class="hljs-attr">view</span>: [
-        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>,
-        ],      <br>
+          <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
+        ],<br>
 
-        <span class="hljs-attr">colors</span>: [&#123;
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,
-        <span class="hljs-attr">start</span>: <span class="hljs-number">1</span>,
-        <span class="hljs-attr">end</span>: <span class="hljs-number">18</span>
-        },      <br>
+        <span class="hljs-attr">colors</span>: [ <br>&#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,<br>
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">1</span>,<br>
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">18</span><br>
+        },<br>
+        &#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'insertion'</span>,<br>
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">19</span>,<br>
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">24</span>,<br>
+        &nbsp;<span class="hljs-attr">color:</span> &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">255</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">255</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.5</span>
+        }<br>
+        },<br>
         &#123;
-        <span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,
-        <span class="hljs-attr">start</span>: <span class="hljs-number">19</span>,
-        <span class="hljs-attr">end</span>: <span class="hljs-number">27</span>
-        }      <br>
-        ]};</code>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">25</span>,
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">34</span>,
+        }<br>
+        ],<br>
+        <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-1'</span>
+        };</code>
       <br>
-      <button (click)="runExOne()">Run</button>
     </div>
     <div>
+      <lib-sqv *ngIf="exOne" [op]="exOne"></lib-sqv>
     </div>
-    <lib-sqv *ngIf="exOne" [op]="exOne"></lib-sqv>
   </div>
+  <!--  INDEXES EXAMPLE-->
   <div class="flex-container jumbotron">
 
     <div>
-      <h6> <b>Simple case</b> </h6>
+      <h6> <b>Adding indexes</b> </h6>
+      <code class="hljs">options =  &#123;<br>
 
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,<br>&#123;<br>
 
+        <span class="hljs-attr">parameters</span>:  &#123;<br>
+        &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
+        <br> },<br>
 
-      <button (click)="runExTwo()">Run</button>
+        <span class="hljs-attr">view</span>: [
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
+        ],<br>
+
+        &nbsp;<span class="hljs-attr">colors</span>: [ <br>&#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,<br>
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">21</span>,<br>
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">38</span>
+        }<br>
+        ],<br>
+        <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-1'</span>
+        };</code>
+      <br>
+    </div>
+    <div>
+      <lib-sqv *ngIf="exIndexes" [op]="exIndexes"></lib-sqv>
     </div>
   </div>
+  <!--  COLORS EXAMPLE-->
+  <div class="flex-container jumbotron">
+    <div>
+      <h6> <b>Personalize colors</b> </h6>
+      <code class="hljs">options =  &#123;<br>
+
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,<br>&#123;<br>
+
+        <span class="hljs-attr">parameters</span>:  &#123;<br>
+        &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'custom'</span>
+        &nbsp;<span class="hljs-attr">chunkSize</span>: <span class="hljs-string">20</span>
+        <br> },<br>
+
+        <span class="hljs-attr">view</span>: [
+        <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
+        ],<br>
+
+        <span class="hljs-attr">colors</span>: [ <br>&#123;<br>
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>, <br>
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">1</span>, <br>
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">12</span>, <br>
+        &nbsp;<span class="hljs-attr">color</span>:  &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">237</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">203</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">150</span>
+        }
+        },<br>
+        &#123;
+        &nbsp;<span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,<br>
+        &nbsp;<span class="hljs-attr">start</span>: <span class="hljs-number">15</span>,<br>
+        &nbsp;<span class="hljs-attr">end</span>: <span class="hljs-number">19</span>,<br>
+        &nbsp;<span class="hljs-attr">color</span>:  &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">96</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">87</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">112</span>,
+        <span class="hljs-attr">a</span>: <span class="hljs-number">0.5</span>
+        }
+        },<br>
+        &#123;
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'region'</span>,<br>
+        <span class="hljs-attr">start</span>: <span class="hljs-number">22</span>,<br>
+        <span class="hljs-attr">end</span>: <span class="hljs-number">26</span>,<br>
+        <span class="hljs-attr">color</span>:  &#123;
+        <span class="hljs-attr">r</span>: <span class="hljs-number">221</span>,
+        <span class="hljs-attr">g</span>: <span class="hljs-number">189</span>,
+        <span class="hljs-attr">b</span>: <span class="hljs-number">213</span>
+        }
+        }<br>
+        ],<br>
+        <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-1'</span>
+        };</code>
+    </div>
+    <div>
+      <lib-sqv *ngIf="exColors" [op]="exColors"></lib-sqv>
+    </div>
 </div>
+  </div>
+
 
 <div class="white">
   <div>
@@ -181,8 +272,6 @@
   <h4 id="Second_Sub_Point_2"> <b>2. Examples</b> </h4>
   <div class="flex-container jumbotron column">
     <h6> <b>Simple case</b> </h6>
-
-<!--    <lib-sqv  [op]="exampleOne"></lib-sqv>-->
     <div>
 
 
@@ -219,6 +308,8 @@
 
 
   </div>
+  <div class="flex-container jumbotron column">
+ex additional
 </div>
 
 <div class="jumbotron">

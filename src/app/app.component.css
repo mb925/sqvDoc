@@ -96,6 +96,7 @@ ul.list {
   padding: 0.5em;
   background: white;
   color: black;
+  width: 500px;
 }
 .hljs-keyword {
   color: #00f;

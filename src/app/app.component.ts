@@ -10,9 +10,7 @@ import {SqvLibComponent} from 'sqv-lib';
 export class AppComponent {
 
   title = 'test-sqv';
-  chars = {};
-  sqv;
-  exOne;
+
   options = {
 
     mode: 'viewSequence',
@@ -104,12 +102,7 @@ export class AppComponent {
     id: 'sqv-al'
   };
 
-  exTwo;
-
-
-  runExOne() {
-
-    this.exOne =  {
+  exOne =  {
 
       mode: 'viewSequence',
 
@@ -128,26 +121,55 @@ export class AppComponent {
           end: 18
         },
         {
-          type: 'region',
+          type: 'insertion',
           start: 19,
-          end: 27
+          end: 24,
+          color: {r: 255, g: 255, b: 0, a: 0.5}
+        },
+        {
+          type: 'region',
+          start: 25,
+          end: 34
         }
       ],
       id: 'sqv-1'
     };
-    this.sqv = new SqvLibComponent();
-    this.sqv.draw(this.exOne);
-  }
 
-  runExTwo() {
+  exIndexes = {
 
-    this.exTwo = {
+    mode: 'viewSequence',
+
+    parameters: {
+      skipIndex: 5,
+      chunkSize: 20,
+      colorChoice: 'opposite'
+    },
+
+    view: [
+      'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM',
+      {2: 'a', 3: 'a', 4: 'a', 5 : 'a', 6: 'a', 7: 'a', 8 : 'a',  20: 'b', 21: 'b',
+        22: 'b', 23: 'b', 24: 'b'},
+      {0: '&#x2605;', 1 : '&#x2605;', 31: '&#x2605;', 32 : '&#x2605;'},
+      {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 10: 11, 11: 12, 12: 13, 13: 14, 	14: 15, 15: 16}
+    ],
+
+    colors: [
+      {
+        type: 'region',
+        start: 21,
+        end: 38
+      }
+    ],
+    id: 'sqv-ind'
+  };
+
+    exColors = {
 
       mode: 'viewSequence',
 
       parameters: {
-        colorChoice: 'opposite',
-        chunkSize: 10
+        colorChoice: 'custom',
+        chunkSize: 20
       },
 
       view: [
@@ -158,25 +180,22 @@ export class AppComponent {
         {
           type: 'region',
           start: 1,
-          end: 5,
-          color: {r: 204, g: 255, b: 0}
-        },
-        {
-          type: 'region',
-          start: 6,
-          end: 8,
-          color: {r: 204, g: 255, b: 0}
-        },
-        {
-          type: 'region',
-          start: 9,
           end: 12,
-          color: {r: 204, g: 255, b: 0}
+          color: {r: 237, g: 203, b: 150}
+        },
+        {
+          type: 'region',
+          start: 15,
+          end: 19,
+          color: {r: 96, g: 87, b: 112, a: 0.5}
+        },
+        {
+          type: 'region',
+          start: 22,
+          end: 26,
+          color: {r: 221, g: 189, b: 213}
         }
       ],
-      id: 'sqv-two'
+      id: 'sqv-colo'
     };
-    this.sqv = new SqvLibComponent();
-    this.sqv.draw(this.exTwo);
-  }
 }
