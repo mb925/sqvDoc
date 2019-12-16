@@ -173,6 +173,6 @@ export class AppComponent {
       ]
     };
     this.sqv = new SqvLibComponent();
-    this.sqv.draw(this.exOne);
+    this.sqv.draw(this.exTwo);
   }
 }
