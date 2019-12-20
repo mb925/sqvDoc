@@ -2,7 +2,7 @@
 
   <div class="jumbotron text-center">
     <h1>Sequence Viewer</h1>
-    <h5>SequenceViewer is a package to use in order to highlight specific region of a protein or of aligned sequences</h5>
+    <h5>Sequence Viewer is a package to use in order to highlight specific region of a protein or of aligned sequences</h5>
   </div>
 
 
@@ -15,7 +15,7 @@
         <div id="toc_container">
           <h4 class="toc_title"> <b>Contents</b> </h4>
           <ul class="toc_list">
-            <li><a href="#First_Point_Header">1. VIEWSEQUENCE MODE</a>
+            <li><a href="#First_Point_Header">1. viewSequence MODE</a>
               <ul>
                 <li><a href="#First_Sub_Point_1">1.1 Usage</a></li>
                 <li><a href="#First_Sub_Point_2">1.2 Examples</a></li>
@@ -58,9 +58,9 @@
                 In this mode, the input has to be a single sequence. In case more sequences are submitted, the first one will be choosen.
               </li>
               <li>
-                <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+                <b class ="miniTitle">rawData:</b> (array of string, array or object)<br>
                 <p>Display characters or images on top of the sequence.<br>
-                  In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+                  In sequence rawDataer each element of the rawData array is intended as a row of residues, numbers, symbols or images. <br>
                   In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
               </li>
               <li>
@@ -88,7 +88,7 @@
               </li>
               <li>
                 <b class ="miniTitle">id:</b> (array)
-                Specify an id for the sequence viewer object. It can be number, letters and symbols.
+                Specify an id for the sequence rawDataer object. It can be number, letters and symbols.
               </li>
             </ul>
     </div>
@@ -101,9 +101,9 @@
 
   <h4 id="First_Sub_Point_2"> <b>2. Examples</b> </h4>
 <!--  SIMPLE EXAMPLE-->
-  <div class="flex-container jumbotron">
+  <div class="row jumbotron">
 
-    <div>
+    <div class="col">
       <h6> <b>Simple case</b> </h6>
       <code class="hljs">options =  &#123;<br>
 
@@ -113,7 +113,7 @@
         &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
         <br> },<br>
 
-        <span class="hljs-attr">view</span>: [
+        <span class="hljs-attr">rawData</span>: [
           <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
         ],<br>
 
@@ -143,14 +143,14 @@
         };</code>
       <br>
     </div>
-    <div>
+    <div class="col">
       <lib-sqv *ngIf="exOne" [op]="exOne"></lib-sqv>
     </div>
   </div>
   <!--  INDEXES EXAMPLE-->
-  <div class="flex-container jumbotron">
+  <div class="row jumbotron">
 
-    <div>
+    <div class="col">
       <h6> <b>Adding indexes</b> </h6>
       <code class="hljs">options =  &#123;<br>
 
@@ -160,7 +160,7 @@
         &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
         <br> },<br>
 
-        <span class="hljs-attr">view</span>: [
+        <span class="hljs-attr">rawData</span>: [
         <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM',</span><br>
 
           &#123;
@@ -211,7 +211,7 @@
         };</code>
       <br>
     </div>
-    <div>
+    <div class="col">
       <lib-sqv *ngIf="exIndexes" [op]="exIndexes"></lib-sqv>
     </div>
   </div>
@@ -224,11 +224,11 @@
         <span class="hljs-attr">mode</span>: <span class="hljs-string">'viewSequence'</span>,<br>&#123;<br>
 
         <span class="hljs-attr">parameters</span>:  &#123;<br>
-        &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'custom'</span>
+        &nbsp;<span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'custom'</span><br>
         &nbsp;<span class="hljs-attr">chunkSize</span>: <span class="hljs-string">20</span>
         <br> },<br>
 
-        <span class="hljs-attr">view</span>: [
+        <span class="hljs-attr">rawData</span>: [
         <span class="hljs-string">'MFVPETEDMLPRLAPRPSAAVPMGHTNEIIGPTVPEVSILFGQPPQDPQM'</span>
         ],<br>
 
@@ -286,9 +286,9 @@
           In this mode, the input is intended to be multiple sequences.
         </li>
         <li>
-          <b class ="miniTitle">view:</b> (array of string, array or object)<br>
+          <b class ="miniTitle">rawData:</b> (array of string, array or object)<br>
           <p>Display characters or images on top of the sequence.<br>
-            In sequence viewer each element of the view array is intended as a row of residues, numbers, symbols or images. <br>
+            In sequence rawDataer each element of the rawData array is intended as a row of residues, numbers, symbols or images. <br>
             In this way, also secondary structure or post-transcriptional modification can be indicated.  </p>
         </li>
         <li>
@@ -316,11 +316,7 @@
 
         <span class="hljs-attr">mode</span>: <span class="hljs-string">'alignSequences'</span>,<br>
 
-        <span class="hljs-attr">parameters</span>: &#123;<br>
-        <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span><br>
-        },<br>
-
-        <span class="hljs-attr">view</span>: [<br>
+        <span class="hljs-attr">rawData</span>: [<br>
           <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
           <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
           <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
@@ -376,7 +372,7 @@
     </div>
   </div>
   <div class="flex-container jumbotron">
-    <!--  SIMPLE EXAMPLE-->
+    <!--  ADDING INDEXES EXAMPLE-->
     <h6> <b>Adding Indexes</b> </h6>
     <code class="hljs">options = &#123;<br>
 
@@ -384,10 +380,9 @@
 
       <span class="hljs-attr">parameters</span>: &#123;<br>
       <span class="hljs-attr">chunkSize</span>: <span class="hljs-number">10</span>,<br>
-      <span class="hljs-attr">skipIndex</span>: <span class="hljs-number">5</span>,
-      <span class="hljs-attr">colorChoice</span>: <span class="hljs-string">'opposite'</span>
+      <span class="hljs-attr">skipIndex</span>: <span class="hljs-number">5</span>
       },<br>
-      <span class="hljs-attr">view</span>: [<br>
+      <span class="hljs-attr">rawData</span>: [<br>
         <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
         <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
         <span class="hljs-string">'MFVPETEDMLPRLAPRPSA'</span>,<br>
@@ -421,7 +416,7 @@
       }<br>
       ],<br>
 
-      <span class="hljs-attr">colors</span>: [&#123;<br>
+      <span class="hljs-attr">colors</span>: [<br>&#123;<br>
       <span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
       <span class="hljs-attr">letter</span>: <span class="hljs-string">'A'</span>,<br>
       <span class="hljs-attr">color</span>: &#123;
@@ -430,8 +425,8 @@
       <span class="hljs-attr">b</span>: <span class="hljs-number">0</span>,
       <span class="hljs-attr">a</span>: <span class="hljs-number">0.4</span>
       }<br>
-      },
-      &#123;
+      },<br>
+      &#123;<br>
       <span class="hljs-attr">type</span>: <span class="hljs-string">'aminoacid'</span>,<br>
       <span class="hljs-attr">letter</span>: <span class="hljs-string">'D'</span>,<br>
       <span class="hljs-attr">color</span>: &#123;
@@ -442,7 +437,7 @@
       }
       }<br>
       ],<br>
-      <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-alI'</span>
+      <span class="hljs-attr">id</span>: <span class="hljs-string">'sqv-1'</span>
       };</code>
     <div>
       <lib-sqv *ngIf="alignInd" [op]="alignInd"></lib-sqv>
@@ -499,7 +494,7 @@
           <b class ="miniTitle">mode</b> (string): <i>'viewSequences'</i>,<i>'alignSequences'</i>.
         </li>
         <li>
-          <b class ="miniTitle">view:</b> (array of string, array or object):<br>
+          <b class ="miniTitle">rawData:</b> (array of string, array or object):<br>
           <p> Example of input string: 'AAAAA' for a sequence or '12345' for indexes</p>
           <p> Example of input array: ['A', 'A'] or ['1','2']</p>
           <p> Example of input object: &#123;0: 'A', 1: 'A'} or &#123;0: '1', 1:'2'}</p>

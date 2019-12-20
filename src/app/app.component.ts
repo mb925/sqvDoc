@@ -203,10 +203,6 @@ export class AppComponent {
 
     mode: 'alignSequences',
 
-    parameters: {
-      colorChoice: 'opposite'
-    },
-
     view: [
       'MFVPETEDMLPRLAPRPSA',
       'MFVPETEDMLPRLAPRPSA',
@@ -245,8 +241,7 @@ export class AppComponent {
 
     parameters: {
       chunkSize: 10,
-      skipIndex: 5,
-      colorChoice: 'opposite'
+      skipIndex: 5
     },
 
     view: [

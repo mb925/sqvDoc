@@ -56,6 +56,13 @@ ul.list {
   font-size:13px;
 }
 
+.row{
+
+}
+.col{
+
+}
+
 .flex-container {
   display: flex;
   margin-bottom: 40px;
