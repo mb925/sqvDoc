@@ -21,7 +21,7 @@
     "@angular/router": "~8.1.1",
     "@ctrl/ngx-codemirror": "^2.2.0",
     "bootstrap": "^3.4.1",
-    "codemirror": "^5.49.2",
+    "codemirror": "^5.58.2",
     "jquery": "^3.4.1",
     "liibb": "0.0.14",
     "ng2-codemirror": "^1.1.3",
